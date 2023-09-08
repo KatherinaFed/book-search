@@ -1,20 +1,29 @@
 .bookCard {
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   padding: 10px;
   margin: 15px;
-  max-width: 200px;
+  width: 200px;
   text-align: center;
   background-color: #f0f0e4;
-}
-
-.bookCategory {
-  color: #888;
-  text-decoration: underline;
 }
 
 .bookImage {
   max-width: 100%;
   height: auto;
+}
+
+.bookTextWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+
+.bookCategory {
+  color: #888;
+  text-decoration: underline;
 }
 
 .bookTitle {
