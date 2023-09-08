@@ -6,9 +6,7 @@ function App() {
   return (
     <div className="App">
         <SearchContent />
-      <div className='book-content'>
         <BookContent />
-      </div>
     </div>
   );
 }
