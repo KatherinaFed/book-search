@@ -3,8 +3,6 @@ import cls from './BookCard.module.css';
 
 const BookCard = ({ img, title, category, author }) => {
 
-  // const authors = author.length > 2 ? author[2] = '...' : author;
-
   return (
     <div className={cls.bookCard}>
       <img src={img} alt={'BOOK IMG'} className={cls.bookImage} />
