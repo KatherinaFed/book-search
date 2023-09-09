@@ -11,11 +11,10 @@ const BookContent = () => {
   }
   
   if (isError) {
-    console.log(error.message);
+    console.log(error.data);
     return <div>{error.status}</div>;
   }
   
-  console.log(data);
   return (
     <>
       <div className={cls.bookTotalItems}>Found {data.totalItems} results</div>
