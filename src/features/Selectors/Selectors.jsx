@@ -3,13 +3,19 @@ import cls from './Selectors.module.css';
 import SelectItem from '../SelectorItem/SelectorItem';
 import { categories, sortingBy } from '../../shared/const';
 
-const Selectors = ({ orderBy, setOrderBy }) => {
+const Selectors = ({ orderBy, setOrderBy, filterBy, setFilterBy }) => {
   return (
     <div className={cls.selectors}>
-      <SelectItem defaultValue={'all'} name={'Category'} options={categories} />
       <SelectItem
-        setOrderBy={setOrderBy}
-        orderBy={orderBy}
+        selectBy={filterBy}
+        setSelectBy={setFilterBy}
+        defaultValue={'all'}
+        name={'Category'}
+        options={categories}
+      />
+      <SelectItem
+        selectBy={orderBy}
+        setSelectBy={setOrderBy}
         defaultValue={'relevance'}
         name={'Sorting by'}
         options={sortingBy}
