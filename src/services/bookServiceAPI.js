@@ -8,10 +8,11 @@ export const bookServiceApi = createApi({
   endpoints: (builder) => ({
     // GET ALL BOOKS
     getAllBooks: builder.query({
-      query: (sortData) => {
+      query: ({ categoryData, sortData }) => {
+        const filterBy = categoryData === 'all' ? '' : `+subject=${categoryData}`;
         const orderBy = sortData === 'relevance' ? '' : `&orderBy=${sortData}`;
 
-        return `volumes?q=books${orderBy}&key=${API_KEY}`;
+        return `volumes?q=books${filterBy}${orderBy}&key=${API_KEY}`;
       },
       transformResponse: (response) => {
         return {

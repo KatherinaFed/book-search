@@ -4,6 +4,7 @@ import BookContent from './components/BookContent/BookContent';
 import SearchContent from './components/SearchContent/SearchContent';
 
 function App() {
+  const [filterBy, setFilterBy] = useState('all');
   const [orderBy, setOrderBy] = useState('relevance');
 
   return (
@@ -11,8 +12,10 @@ function App() {
       <SearchContent
         orderBy={orderBy}
         setOrderBy={setOrderBy}
+        filterBy={filterBy}
+        setFilterBy={setFilterBy}
       />
-      <BookContent orderBy={orderBy} />
+      <BookContent filterBy={filterBy} orderBy={orderBy} />
     </div>
   );
 }

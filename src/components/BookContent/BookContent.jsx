@@ -3,9 +3,11 @@ import cls from './BookContent.module.css';
 import BookList from '../../pages/Books/BookList/BookList';
 import { useGetAllBooksQuery } from '../../services/bookServiceAPI';
 
-const BookContent = ({ orderBy }) => {
-  const { data, isLoading, isFetching, isError, error } =
-    useGetAllBooksQuery(orderBy);
+const BookContent = ({ filterBy, orderBy }) => {
+  const { data, isLoading, isFetching, isError, error } = useGetAllBooksQuery({
+    categoryData: filterBy,
+    sortData: orderBy,
+  });
 
   if (isLoading && isFetching) {
     return <h1>Loading...</h1>;
