@@ -8,28 +8,11 @@ export const bookServiceApi = createApi({
   endpoints: (builder) => ({
     // GET ALL BOOKS
     getAllBooks: builder.query({
-      query: () => `volumes?q=books&key=${API_KEY}`,
-      transformResponse: (response) => {
-        return {
-          totalItems: response.totalItems,
-          items: response.items.map((book) => {
-            if (!book.volumeInfo.hasOwnProperty('categories')) {
-              book.volumeInfo['categories'] = [''];
-            }
-            if (!book.volumeInfo.hasOwnProperty('authors')) {
-              book.volumeInfo['authors'] = [''];
-            }
+      query: (sortData) => {
+        const orderBy = sortData === 'relevance' ? '' : `&orderBy=${sortData}`;
 
-            return book;
-          }),
-        };
+        return `volumes?q=books${orderBy}&key=${API_KEY}`;
       },
-      providesTags: ['Books'],
-    }),
-    // GET SORT BOOKS
-    getSortedBooks: builder.query({
-      query: (sortData) =>
-        `/volumes?q=books&orderBy=${sortData}&key=${API_KEY}`,
       transformResponse: (response) => {
         return {
           totalItems: response.totalItems,
