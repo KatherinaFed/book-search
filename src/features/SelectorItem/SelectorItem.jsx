@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cls from './SelectorItem.module.css';
 
-const SelectItem = ({ defaultValue, name, options }) => {
-
+const SelectItem = ({ defaultValue, name, options, orderBy, setOrderBy }) => {
   return (
     <div className={cls.selectorItem}>
       {name}
       <select
+        value={orderBy}
+        onChange={(e) => setOrderBy(e.target.value)}
         className={cls.selectOptions}
       >
         {options.map((opt) => (
