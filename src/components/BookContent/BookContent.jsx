@@ -19,8 +19,7 @@ const BookContent = ({ searchData, filterBy, orderBy }) => {
     return <div>{error.status}</div>;
   }
 
-  console.log('All Books: ', data);
-
+  console.log(data)
   return (
     <>
       <div className={cls.bookTotalItems}>Found {data.totalItems} results</div>

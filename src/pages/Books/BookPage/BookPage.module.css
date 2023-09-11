@@ -1,0 +1,42 @@
+.bookPageContainer {
+  display: flex;
+}
+
+.bookPageLeft {
+  flex: 1; /* Take up one-third of the available space */
+  padding: 20px; /* Add spacing around the image */
+}
+
+.bookImage {
+  max-width: 100%;
+  box-shadow: gray 5px 5px 10px;
+}
+
+.bookPageRight {
+  flex: 2; /* Take up two-thirds of the available space */
+  padding: 20px; /* Add spacing around book details */
+}
+
+.bookCategory {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.bookTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.bookAuthor {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: gray;
+  text-decoration: underline;
+}
+
+.bookDescription {
+  font-size: 16px;
+  line-height: 1.5; /* Adjust line height for readability */
+}
