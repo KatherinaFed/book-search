@@ -1,5 +1,6 @@
 import React from 'react';
 import cls from './BookContent.module.css';
+import loader from '../../assets/preloader.gif';
 import BookList from '../../pages/Books/BookList/BookList';
 import { useGetAllBooksQuery } from '../../services/bookServiceAPI';
 
@@ -11,7 +12,11 @@ const BookContent = ({ searchData, filterBy, orderBy }) => {
   });
 
   if (isLoading && isFetching) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className={cls.loader}>
+        <img src={loader} alt="preloader" />
+      </div>
+    );
   }
 
   if (isError) {
@@ -19,7 +24,7 @@ const BookContent = ({ searchData, filterBy, orderBy }) => {
     return <div>{error.status}</div>;
   }
 
-  console.log(data)
+  console.log(data);
   return (
     <>
       <div className={cls.bookTotalItems}>Found {data.totalItems} results</div>
