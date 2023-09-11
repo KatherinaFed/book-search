@@ -1,12 +1,14 @@
 import React from 'react';
 import BookCard from '../BookCard/BookCard';
+import { uniqueId } from 'lodash';
 
 const BookList = ({ books }) => {
   return (
     <>
       {books.map((book) => (
         <BookCard
-          key={book.id}
+          key={uniqueId()}
+          bookID={book.id}
           img={book.volumeInfo.imageLinks.smallThumbnail}
           title={book.volumeInfo.title}
           category={book.volumeInfo.categories}

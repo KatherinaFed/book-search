@@ -43,7 +43,28 @@ export const bookServiceApi = createApi({
       },
       providesTags: ['Books'],
     }),
+    // GET A BOOK BY ID
+    getBookById: builder.query({
+      query: (bookID) => {
+        return `volumes/${bookID}?key=${API_KEY}`;
+      },
+      transformResponse: (response) => {
+        if (!response.volumeInfo.hasOwnProperty('categories')) {
+          response.volumeInfo['categories'] = ['no category'];
+        }
+        if (!response.volumeInfo.hasOwnProperty('authors')) {
+          response.volumeInfo['authors'] = [''];
+        }
+
+        return { book: response.volumeInfo };
+      },
+      providesTags: ['Books'],
+    }),
   }),
 });
 
-export const { useGetAllBooksQuery, useGetSortedBooksQuery } = bookServiceApi;
+export const {
+  useGetAllBooksQuery,
+  useGetSortedBooksQuery,
+  useGetBookByIdQuery,
+} = bookServiceApi;
