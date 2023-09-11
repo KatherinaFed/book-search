@@ -4,11 +4,17 @@ import Title from '../../shared/Title/Title';
 import SearchForm from '../../features/SearchForm/SearchForm';
 import Selectors from '../../features/Selectors/Selectors';
 
-const SearchContent = ({ orderBy, setOrderBy, filterBy, setFilterBy }) => {
+const SearchContent = ({
+  setSearchData,
+  orderBy,
+  setOrderBy,
+  filterBy,
+  setFilterBy,
+}) => {
   return (
     <div className={cls.searchContent}>
       <Title />
-      <SearchForm />
+      <SearchForm setSearchData={setSearchData} />
       <Selectors
         orderBy={orderBy}
         setOrderBy={setOrderBy}

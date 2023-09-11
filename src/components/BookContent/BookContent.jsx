@@ -3,8 +3,9 @@ import cls from './BookContent.module.css';
 import BookList from '../../pages/Books/BookList/BookList';
 import { useGetAllBooksQuery } from '../../services/bookServiceAPI';
 
-const BookContent = ({ filterBy, orderBy }) => {
+const BookContent = ({ searchData, filterBy, orderBy }) => {
   const { data, isLoading, isFetching, isError, error } = useGetAllBooksQuery({
+    searchData,
     categoryData: filterBy,
     sortData: orderBy,
   });
