@@ -9,3 +9,10 @@
   margin: 10px;
   text-align: center;
 }
+
+.loader {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  height: 100%;
+}
