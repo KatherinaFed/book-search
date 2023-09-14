@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cls from './SearchForm.module.css';
 import { BsSearch } from 'react-icons/bs';
 
-const SearchForm = ({ setSearchData }) => {
+const SearchForm = ({ setSearchData, setStartIndex }) => {
   const [searchBook, setSearchBook] = useState('');
 
   const handleSearchSubmit = (e) => {
@@ -10,6 +10,7 @@ const SearchForm = ({ setSearchData }) => {
 
     setSearchData(searchBook);
     setSearchBook(''); // clear input
+    setStartIndex(0);
   };
 
   return (

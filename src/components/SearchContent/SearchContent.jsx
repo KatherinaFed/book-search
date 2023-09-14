@@ -10,16 +10,18 @@ const SearchContent = ({
   setOrderBy,
   filterBy,
   setFilterBy,
+  setStartIndex,
 }) => {
   return (
     <div className={cls.searchContent}>
       <Title />
-      <SearchForm setSearchData={setSearchData} />
+      <SearchForm setSearchData={setSearchData} setStartIndex={setStartIndex} />
       <Selectors
         orderBy={orderBy}
         setOrderBy={setOrderBy}
         filterBy={filterBy}
         setFilterBy={setFilterBy}
+        setStartIndex={setStartIndex}
       />
     </div>
   );

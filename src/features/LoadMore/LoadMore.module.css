@@ -1,0 +1,23 @@
+.loadContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loadButton {
+  margin: 10px;
+  display: flex;
+  width: 50%;
+  height: 2.5rem;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: #393e46;
+  cursor: pointer;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 5px 5px;
+}
+
+.loadButton:hover {
+  background-color: #fdc57b;
+}
