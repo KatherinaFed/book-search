@@ -9,13 +9,13 @@ export const bookServiceApi = createApi({
   endpoints: (builder) => ({
     // GET ALL BOOKS
     getAllBooks: builder.query({
-      query: ({ searchData, categoryData, sortData }) => {
+      query: ({ searchData, categoryData, sortData, startIndex = 0 }) => {
         const searchTerms = searchData === '' ? 'books' : searchData;
         const filterBy =
           categoryData === 'all' ? '' : `+subject=${categoryData}`;
         const orderBy = sortData === 'relevance' ? '' : `&orderBy=${sortData}`;
 
-        return `volumes?q=${searchTerms}${filterBy}${orderBy}&key=${API_KEY}`;
+        return `volumes?q=${searchTerms}${filterBy}${orderBy}&startIndex=${startIndex}&maxResults=30&key=${API_KEY}`;
       },
       transformResponse: (response) => {
         return {
@@ -41,6 +41,26 @@ export const bookServiceApi = createApi({
           }),
         };
       },
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems, { arg }) => {
+        if (arg.startIndex) {
+          const updatedCache = {
+            totalItems: currentCache.totalItems,
+            items: [...currentCache.items, ...newItems.items],
+          };
+
+          return updatedCache;
+        }
+
+        if (arg.categoryData || arg.searchData || arg.sortData) {
+          return newItems;
+        }
+      },
+      forceRefetch({ currentArg, previousArg = 0 }) {
+        return currentArg['startIndex'] !== previousArg;
+      },
       providesTags: ['Books'],
     }),
     // GET A BOOK BY ID
@@ -50,7 +70,7 @@ export const bookServiceApi = createApi({
       },
       transformResponse: (response) => {
         if (!response.volumeInfo.hasOwnProperty('categories')) {
-          response.volumeInfo['categories'] = ['no category'];
+          response.volumeInfo['categories'] = [''];
         }
         if (!response.volumeInfo.hasOwnProperty('authors')) {
           response.volumeInfo['authors'] = [''];
@@ -63,8 +83,5 @@ export const bookServiceApi = createApi({
   }),
 });
 
-export const {
-  useGetAllBooksQuery,
-  useGetSortedBooksQuery,
-  useGetBookByIdQuery,
-} = bookServiceApi;
+export const { useGetAllBooksQuery, useGetBookByIdQuery } =
+  bookServiceApi;

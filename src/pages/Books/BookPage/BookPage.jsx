@@ -36,7 +36,6 @@ const BookPage = () => {
           Author: {data.book.authors.map((auth) => `- ${auth} -`)}
         </p>
         <p className={cls.bookDescription}>{data.book.description}</p>
-        {/* Add other book details as needed */}
       </div>
     </div>
   );

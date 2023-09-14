@@ -3,7 +3,13 @@ import cls from './Selectors.module.css';
 import SelectItem from '../SelectorItem/SelectorItem';
 import { categories, sortingBy } from '../../shared/const';
 
-const Selectors = ({ orderBy, setOrderBy, filterBy, setFilterBy }) => {
+const Selectors = ({
+  orderBy,
+  setOrderBy,
+  filterBy,
+  setFilterBy,
+  setStartIndex,
+}) => {
   return (
     <div className={cls.selectors}>
       <SelectItem
@@ -12,6 +18,7 @@ const Selectors = ({ orderBy, setOrderBy, filterBy, setFilterBy }) => {
         defaultValue={'all'}
         name={'Category'}
         options={categories}
+        setStartIndex={setStartIndex}
       />
       <SelectItem
         selectBy={orderBy}
@@ -19,6 +26,7 @@ const Selectors = ({ orderBy, setOrderBy, filterBy, setFilterBy }) => {
         defaultValue={'relevance'}
         name={'Sorting by'}
         options={sortingBy}
+        setStartIndex={setStartIndex}
       />
     </div>
   );

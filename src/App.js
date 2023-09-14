@@ -9,6 +9,7 @@ function App() {
   const [searchData, setSearchData] = useState('');
   const [filterBy, setFilterBy] = useState('all');
   const [orderBy, setOrderBy] = useState('relevance');
+  const [startIndex, setStartIndex] = useState(0);
 
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         setOrderBy={setOrderBy}
         filterBy={filterBy}
         setFilterBy={setFilterBy}
+        setStartIndex={setStartIndex}
       />
       <Routes>
         <Route
@@ -27,6 +29,8 @@ function App() {
               searchData={searchData}
               filterBy={filterBy}
               orderBy={orderBy}
+              startIndex={startIndex}
+              setStartIndex={setStartIndex}
             />
           }
         />
