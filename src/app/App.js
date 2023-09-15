@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import BookContent from './components/BookContent/BookContent';
-import SearchContent from './components/SearchContent/SearchContent';
-import BookPage from './pages/Books/BookPage/BookPage';
+import BookContent from '../components/BookContent/BookContent';
+import SearchContent from '../components/SearchContent/SearchContent';
+import BookPage from '../pages/Books/BookPage/BookPage';
 
 function App() {
   const [searchData, setSearchData] = useState('');

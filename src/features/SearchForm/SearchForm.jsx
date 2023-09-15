@@ -23,6 +23,7 @@ const SearchForm = ({ setSearchData, setStartIndex }) => {
         value={searchBook}
         onChange={(e) => setSearchBook(e.target.value)}
         className={cls.searchInput}
+        placeholder='Search a book...'
       />
       <button type="submit" className={cls.searchButton}>
         <BsSearch />
