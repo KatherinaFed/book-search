@@ -12,8 +12,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.book-content {
-  display: flex;
-  justify-content: center;
-}
