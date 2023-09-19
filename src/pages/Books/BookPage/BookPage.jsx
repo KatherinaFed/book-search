@@ -18,7 +18,6 @@ const BookPage = () => {
     console.log(error.data);
     return <div>{error.status}</div>;
   }
-  console.log(data.book);
 
   const { coverBook, categoryBook, authorBook } = dataBook(data);
 
@@ -33,7 +32,7 @@ const BookPage = () => {
         )}
         <h2 className={cls.bookTitle}>{data.book.title}</h2>
         <p className={cls.bookAuthor}>
-          Author: {data.book.authors.map((auth) => `- ${auth} -`)}
+          Author: {authorBook}
         </p>
         <p className={cls.bookDescription}>{data.book.description}</p>
       </div>

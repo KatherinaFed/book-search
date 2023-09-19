@@ -7,7 +7,7 @@ const BookCard = ({ bookID, img, title, category, author }) => {
 
   return (
     <div className={cls.bookCard} onClick={() => navigate(`book/${bookID}`)}>
-      <img src={img} alt={'BOOK IMG'} className={cls.bookImage} />
+      <img src={img} alt={'Book cover'} className={cls.bookImage} />
       <div className={cls.bookTextWrapper}>
         <p className={cls.bookCategory}>{category.map((cat) => cat)}</p>
         <h2 className={cls.bookTitle}>{title}</h2>
