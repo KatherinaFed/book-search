@@ -9,7 +9,7 @@ const BookList = ({ books }) => {
         <BookCard
           key={uniqueId()}
           bookID={book.id}
-          img={book.volumeInfo.imageLinks.smallThumbnail}
+          img={book.volumeInfo.imageLinks.thumbnail}
           title={book.volumeInfo.title}
           category={book.volumeInfo.categories}
           author={book.volumeInfo.authors}

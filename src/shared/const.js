@@ -20,16 +20,15 @@ export const dataBook = (dataBook) => {
     ? dataBook.book.imageLinks
     : noImg;
 
-  const imageUrl = imageLink.hasOwnProperty('medium')
-    ? imageLink.medium
-    : imageLink.thumbnail;
+  const imageUrl =
+    imageLink.hasOwnProperty('smallThumbnail') && imageLink.smallThumbnail;
 
   const categoryBook = dataBook.book.hasOwnProperty('categories')
     ? dataBook.book.categories.map((c) => c + ' ')
     : '';
 
   const authorBook = dataBook.book.hasOwnProperty('authors')
-    ? dataBook.book.authors.map((auth) => `- ${auth} -`)
+    ? dataBook.book.authors.map((auth) => ` ${auth} `)
     : '';
 
   return {
@@ -37,4 +36,17 @@ export const dataBook = (dataBook) => {
     categoryBook,
     authorBook,
   };
+};
+
+export const getQueryParams = (
+  searchData,
+  categoryData,
+  sortData,
+  startIndex
+) => {
+  const searchTerms = searchData === '' ? 'books' : searchData;
+  const filterBy = categoryData === 'all' ? '' : `+subject=${categoryData}`;
+  const orderBy = sortData === 'relevance' ? '' : `&orderBy=${sortData}`;
+
+  return `${searchTerms}${filterBy}${orderBy}&startIndex=${startIndex}&maxResults=30`;
 };
