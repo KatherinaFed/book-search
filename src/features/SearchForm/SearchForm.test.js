@@ -1,13 +1,11 @@
+import React from 'react';
 import {
   screen,
   render,
   act,
   fireEvent,
-  getByRole,
 } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import SearchForm from './SearchForm';
-import React, { useState } from 'react';
 
 describe('Search Form component', () => {
   it('should have - input, button', () => {

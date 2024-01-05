@@ -2,7 +2,6 @@ import React from 'react';
 import cls from './BookPage.module.css';
 import { useParams } from 'react-router-dom';
 import { useGetBookByIdQuery } from '../../../services/bookServiceAPI';
-import noImg from '../../../assets/noImg.jpg';
 import { dataBook } from '../../../shared/const';
 
 const BookPage = () => {

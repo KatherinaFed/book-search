@@ -16,18 +16,28 @@ export const sortingBy = [
 ];
 
 export const dataBook = (dataBook) => {
-  const imageLink = dataBook.book.hasOwnProperty('imageLinks')
+  const imageLink = Object.prototype.hasOwnProperty.call(
+    dataBook.book,
+    'imageLinks'
+  )
     ? dataBook.book.imageLinks
     : noImg;
 
   const imageUrl =
-    imageLink.hasOwnProperty('smallThumbnail') && imageLink.smallThumbnail;
+    Object.prototype.hasOwnProperty.call(imageLink, 'smallThumbnail') &&
+    imageLink.smallThumbnail;
 
-  const categoryBook = dataBook.book.hasOwnProperty('categories')
+  const categoryBook = Object.prototype.hasOwnProperty.call(
+    dataBook.book,
+    'categories'
+  )
     ? dataBook.book.categories.map((c) => c + ' ')
     : '';
 
-  const authorBook = dataBook.book.hasOwnProperty('authors')
+  const authorBook = Object.prototype.hasOwnProperty.call(
+    dataBook.book,
+    'authors'
+  )
     ? dataBook.book.authors.map((auth) => ` ${auth} `)
     : '';
 

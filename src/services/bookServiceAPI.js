@@ -24,18 +24,32 @@ export const bookServiceApi = createApi({
         return {
           totalItems: response.totalItems,
           items: response.items.map((book) => {
-            if (!book.volumeInfo.hasOwnProperty('categories')) {
+            if (
+              !Object.prototype.hasOwnProperty.call(
+                book.volumeInfo,
+                'categories'
+              )
+            ) {
               book.volumeInfo['categories'] = [''];
             }
-            if (!book.volumeInfo.hasOwnProperty('authors')) {
+            if (
+              !Object.prototype.hasOwnProperty.call(book.volumeInfo, 'authors')
+            ) {
               book.volumeInfo['authors'] = [''];
             }
-            if (!book.volumeInfo.hasOwnProperty('imageLinks')) {
+            if (
+              !Object.prototype.hasOwnProperty.call(
+                book.volumeInfo,
+                'imageLinks'
+              )
+            ) {
               book.volumeInfo['imageLinks'] = {
                 thumbnail: noImg,
               };
             }
-            if (!book.volumeInfo.hasOwnProperty('title')) {
+            if (
+              !Object.prototype.hasOwnProperty.call(book.volumeInfo, 'title')
+            ) {
               book.volumeInfo['title'] = [''];
             }
 
@@ -71,10 +85,10 @@ export const bookServiceApi = createApi({
         return `volumes/${bookID}?key=${API_KEY}`;
       },
       transformResponse: (response) => {
-        if (!response.volumeInfo.hasOwnProperty('categories')) {
+        if (!Object.prototype.hasOwnProperty.call(response.volumeInfo, 'categories')) {
           response.volumeInfo['categories'] = [''];
         }
-        if (!response.volumeInfo.hasOwnProperty('authors')) {
+        if (!Object.prototype.hasOwnProperty.call(response.volumeInfo, 'authors')) {
           response.volumeInfo['authors'] = [''];
         }
 
