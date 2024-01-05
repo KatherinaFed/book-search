@@ -9,7 +9,7 @@ const SearchForm = ({ setSearchData, setStartIndex }) => {
     e.preventDefault();
 
     setSearchData(searchBook);
-    setSearchBook(''); // clear input
+    setSearchBook('');
     setStartIndex(0);
   };
 
