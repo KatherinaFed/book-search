@@ -2,7 +2,7 @@
 # Google Books Search App :open_book:
 The Google Books Search App is a user-friendly app that allows you to search for books and discover detailed information about them.
 
-### Books Search app: [deployed on Vercel](https://book-search-steel.vercel.app/)
+### Books Search app: [deployed on Netlify](https://book-search-google.netlify.app/) 
 
 API: [Google API information](https://developers.google.com/books/docs/v1/using)
 
