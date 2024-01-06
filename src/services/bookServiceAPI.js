@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_KEY, API_URL } from '../shared/api';
 import noImg from '../assets/noImg.jpg';
 import { getQueryParams } from '../shared/const';
 
 export const bookServiceApi = createApi({
   reducerPath: 'books',
-  baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
   tagTypes: ['Books'],
   endpoints: (builder) => ({
     // GET ALL BOOKS
@@ -18,7 +17,7 @@ export const bookServiceApi = createApi({
           startIndex
         );
 
-        return `volumes?q=${queryParams}&key=${API_KEY}`;
+        return `volumes?q=${queryParams}&key=${process.env.REACT_APP_API_KEY}`;
       },
       transformResponse: (response) => {
         return {
@@ -68,7 +67,7 @@ export const bookServiceApi = createApi({
     // GET A BOOK BY ID
     getBookById: builder.query({
       query: (bookID) => {
-        return `volumes/${bookID}?key=${API_KEY}`;
+        return `volumes/${bookID}?key=${process.env.REACT_APP_API_KEY}`;
       },
       transformResponse: (response) => {
         if (!response.volumeInfo.hasOwnProperty('categories')) {
