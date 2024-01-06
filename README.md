@@ -1,7 +1,8 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a40634cb-9e8d-4ed5-9452-68432c6c75c3/deploy-status)](https://app.netlify.com/sites/book-search-google/deploys)
 # Google Books Search App :open_book:
 The Google Books Search App is a user-friendly app that allows you to search for books and discover detailed information about them.
 
-### Books Search app: [deployed on Vercel](https://book-search-steel.vercel.app/)
+### Books Search app: [deployed on Netlify](https://book-search-google.netlify.app/) 
 
 API: [Google API information](https://developers.google.com/books/docs/v1/using)
 
